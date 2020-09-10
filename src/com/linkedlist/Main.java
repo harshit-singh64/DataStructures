@@ -18,20 +18,20 @@ public class Main {
 
 		// linkedlist.deleteByKey(linkedlist, 20l);
 
-		// linkedlist.deleteByIndex(linkedlist, 10);
+//		linkedlist.deleteByIndex(linkedlist, 10);
 
-		// linkedlist.printList(linkedlist);
-
-		// linkedlist.findLengthOflinkedlistIt(linkedlist);
-
-		// linkedlist.getCount(linkedlist);
-
-		// linkedlist.getKeyByIndex(linkedlist, 4);
-
-		// linkedlist.getNthNodeFromEnd(linkedlist, 2);
-
-		// linkedlist.findMiddleNode(linkedlist);
-
+//		linkedlist.printList(linkedlist);
+		
+//		linkedlist.findLengthOflinkedlistIt(linkedlist);
+		
+//		linkedlist.getCount(linkedlist);
+		
+//		linkedlist.getKeyByIndex(linkedlist, 4);
+		
+//		linkedlist.getNthNodeFromEnd(linkedlist, 2);
+		
+//		linkedlist.findMiddleNode(linkedlist);
+		
 		linkedlist.getOccurenceCount(linkedlist, 5l);
 	}
 
