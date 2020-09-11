@@ -292,6 +292,8 @@ public class Linkedlist {
 		}
 
 		Node midNode = null;
+		
+//		to check for odd/even nodes, odd nodes will not null fastnode while even will give null node
 		if (fastPointer != null) {
 			midNode = slowPointer;
 			slowPointer = slowPointer.nextNode;
