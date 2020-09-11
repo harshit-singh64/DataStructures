@@ -7,13 +7,12 @@ public class Main {
 		Linkedlist linkedlist = new Linkedlist();
 		linkedlist = linkedlist.insert(linkedlist, 1l);
 		linkedlist = linkedlist.insert(linkedlist, 2l);
+		linkedlist = linkedlist.insert(linkedlist, 2l);
+		linkedlist = linkedlist.insert(linkedlist, 2l);
 		linkedlist = linkedlist.insert(linkedlist, 3l);
 		linkedlist = linkedlist.insert(linkedlist, 4l);
-		linkedlist = linkedlist.insert(linkedlist, 5l);
-		linkedlist = linkedlist.insert(linkedlist, 6l);
-		linkedlist = linkedlist.insert(linkedlist, 5l);
-		linkedlist = linkedlist.insert(linkedlist, 5l);
 
+//		linkedlist.head.nextNode.nextNode.nextNode.nextNode.nextNode = linkedlist.head.nextNode;
 		linkedlist.printList(linkedlist);
 
 		// linkedlist.deleteByKey(linkedlist, 20l);
@@ -32,7 +31,29 @@ public class Main {
 		
 //		linkedlist.findMiddleNode(linkedlist);
 		
-		linkedlist.getOccurenceCount(linkedlist, 5l);
+//		linkedlist.getOccurenceCount(linkedlist, 5l);
+		
+//		linkedlist.detectLoop(linkedlist);
+
+//		linkedlist.detectLoopFloydsCycleFindingAlgorithm(linkedlist, " ");
+		
+//		linkedlist.lengthOfLoop(linkedlist);
+				
+//		linkedlist.detectAndremoveLoop(linkedlist);
+		
+//		linkedlist.reverseList(linkedlist);
+		
+//		linkedlist.checkPalindrome(linkedlist);
+
+//		linkedlist.removeDuplicateFromSortedList(linkedlist);
+		
+		linkedlist.removeDuplicateRecu(linkedlist.head);
+		
+		linkedlist.printList(linkedlist);
+		
+		
+
+
 	}
 
 }
