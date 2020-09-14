@@ -474,13 +474,56 @@ public class Linkedlist {
 		return linkedlist;
 	}
 
-	public boolean isPresent(Node head, int data) {
-		Node t = head;
-		while (t != null) {
-			if (t.data == data)
-				return true;
-			t = t.nextNode;
+	public void intersectionPoint(Linkedlist linkedlist1, Linkedlist linkedlist2) {
+		Node headA = linkedlist1.head;
+
+		while (headA != null && headA.nextNode != null) {
+			Node headB = linkedlist2.head;
+
+			while (headB != null && headB.nextNode != null) {
+				if (headA.nextNode.data == headB.nextNode.data) {
+					System.out.println("Intersection point : " + headA.nextNode.data);
+				}
+				headB = headB.nextNode;
+			}
+			headA = headA.nextNode;
+
 		}
-		return false;
+	}
+
+	public void seperateEvenOdd(Linkedlist linkedlist) {
+		Node currNode = linkedlist.head;
+
+		Node evenStart = null;
+		Node evenEnd = null;
+		Node oddStart = null;
+		Node oddEnd = null;
+
+		while (currNode != null) {
+			if ((currNode.data % 2) == 0) {
+				if (evenStart == null) {
+					evenStart = currNode;
+					evenEnd = evenStart;
+				} else {
+					evenEnd.nextNode = currNode;
+					evenEnd = evenEnd.nextNode;
+				}
+			} else {
+
+				if (oddStart == null) {
+					oddStart = currNode;
+					oddEnd = oddStart;
+				} else {
+					oddEnd.nextNode = currNode;
+					oddEnd = oddEnd.nextNode;
+				}
+			}
+			// Move head pointer one step in forward direction
+			currNode = currNode.nextNode;
+		}
+
+		evenEnd.nextNode = oddStart;
+		oddEnd.nextNode = null;
+		head = evenStart;
 	}
 }

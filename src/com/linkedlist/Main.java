@@ -13,9 +13,9 @@ public class Main {
 		linkedlist = linkedlist.insert(linkedlist, 6l);
 		
 		Linkedlist linkedlist2 = new Linkedlist();
-		linkedlist2 = linkedlist2.insert(linkedlist2, 1l);
-		linkedlist2 = linkedlist2.insert(linkedlist2, 1l);
+		linkedlist2 = linkedlist2.insert(linkedlist2, 7l);
 		linkedlist2 = linkedlist2.insert(linkedlist2, 3l);
+		linkedlist2 = linkedlist2.insert(linkedlist2, 4l);
 
 //		linkedlist.head.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode = linkedlist.head.nextNode.nextNode;
 //		linkedlist.printList(linkedlist);
@@ -65,6 +65,10 @@ public class Main {
 //		linkedlist.lastToFirst(linkedlist);
 		
 //		linkedlist = linkedlist.intersectionOfTwoLists(linkedlist, linkedlist2);
+		
+//		linkedlist.intersectionPoint(linkedlist, linkedlist2);
+		
+		linkedlist.seperateEvenOdd(linkedlist);
 		
 		linkedlist.printList(linkedlist);
 		
