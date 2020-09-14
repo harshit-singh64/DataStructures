@@ -1,6 +1,7 @@
 package com.linkedlist;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class Linkedlist {
 
@@ -219,17 +220,29 @@ public class Linkedlist {
 	public void lengthOfLoop(Linkedlist linkedlist) {
 		Node fastPointer = linkedlist.head;
 		Node slowPointer = linkedlist.head;
-		int counter = 0;
 
 		while (fastPointer != null && fastPointer.nextNode != null) {
 			fastPointer = fastPointer.nextNode.nextNode;
 			slowPointer = slowPointer.nextNode;
-			counter++;
+
 			if (slowPointer == fastPointer) {
-				System.out.println("Length of loop :" + counter);
+				System.out.println("Length of loop :" + countLoop(slowPointer));
 				break;
 			}
 		}
+	}
+
+	public int countLoop(Node slowPointer) {
+
+		int count = 1;
+
+		Node tempPointer = slowPointer;
+
+		while (tempPointer.nextNode != slowPointer) {
+			count++;
+			tempPointer = tempPointer.nextNode;
+		}
+		return count;
 	}
 
 	public void detectAndremoveLoop(Linkedlist linkedlist) {
@@ -292,8 +305,9 @@ public class Linkedlist {
 		}
 
 		Node midNode = null;
-		
-//		to check for odd/even nodes, odd nodes will not null fastnode while even will give null node
+
+		// to check for odd/even nodes, odd nodes will not null fastnode while even will
+		// give null node
 		if (fastPointer != null) {
 			midNode = slowPointer;
 			slowPointer = slowPointer.nextNode;
@@ -342,5 +356,131 @@ public class Linkedlist {
 				removeDuplicateRecu(head.nextNode);
 			}
 		}
+	}
+
+	public void removeDuplicateFromUnsortedList(Linkedlist linkedlist) {
+		// complexity O(n)
+
+		Node currNode = linkedlist.head;
+		Set<Long> longSet = new HashSet<>();
+		Node noDuplicateNode = null;
+
+		while (currNode != null) {
+			if (longSet.contains(currNode.data)) {
+				noDuplicateNode.nextNode = currNode.nextNode;
+			} else {
+				longSet.add(currNode.data);
+				noDuplicateNode = currNode;
+			}
+			currNode = currNode.nextNode;
+		}
+	}
+
+	public void removeDuplicateFromUnsortedListUsingLoop(Linkedlist linkedlist) {
+		// complexity O(n^2)
+
+		Node currNode = linkedlist.head;
+		Node newLoopNode = linkedlist.head;
+		Node noDuplicateNode = null;
+
+		while (currNode != null && currNode.nextNode != null) {
+			while (newLoopNode != null && newLoopNode.nextNode != null) {
+				if (currNode.data.equals(newLoopNode.nextNode.data)) {
+					noDuplicateNode = newLoopNode.nextNode;
+					newLoopNode.nextNode = newLoopNode.nextNode.nextNode;
+				}
+				newLoopNode = newLoopNode.nextNode;
+
+			}
+			currNode = currNode.nextNode;
+		}
+	}
+
+	public void swapTwoNodesData(Linkedlist linkedlist, Long x, Long y) {
+		Node currNode = linkedlist.head;
+		Node nodeX = null;
+		Node nodeY = null;
+
+		while (currNode.nextNode != null) {
+			if (x.equals(currNode.nextNode.data)) {
+				nodeX = currNode;
+			}
+			if (y.equals(currNode.nextNode.data)) {
+				nodeY = currNode;
+			}
+			currNode = currNode.nextNode;
+		}
+
+		if (nodeX != null && nodeY != null) {
+			Node temp = nodeX.nextNode;
+			nodeX.nextNode = nodeY.nextNode;
+			nodeY.nextNode = temp;
+
+			temp = nodeX.nextNode.nextNode;
+			nodeX.nextNode.nextNode = nodeY.nextNode.nextNode;
+			nodeY.nextNode.nextNode = temp;
+		}
+	}
+
+	public void pairSwap(Linkedlist linkedlist) {
+		Node currNode = linkedlist.head;
+		while (currNode != null && currNode.nextNode != null) {
+			Long data = currNode.data;
+			currNode.data = currNode.nextNode.data;
+			currNode.nextNode.data = data;
+
+			currNode = currNode.nextNode.nextNode;
+		}
+	}
+
+	public void lastToFirst(Linkedlist linkedlist) {
+		Node currNode = linkedlist.head;
+
+		Node onePrevNode = null;
+
+		while (currNode != null && currNode.nextNode != null) {
+			onePrevNode = currNode;
+			currNode = currNode.nextNode;
+		}
+
+		if (currNode != null) {
+			Node lastNode = currNode;
+
+			onePrevNode.nextNode = null;
+			// currNode = null;
+			lastNode.nextNode = linkedlist.head;
+			linkedlist.head = lastNode;
+		}
+	}
+
+	public Linkedlist intersectionOfTwoLists(Linkedlist linkedlist1, Linkedlist linkedlist2) {
+		Linkedlist linkedlist = new Linkedlist();
+
+		Node headA = linkedlist1.head;
+
+		while (headA != null) {
+			Node headB = linkedlist2.head;
+
+			while (headB != null) {
+
+				if (headA.data == headB.data) {
+					linkedlist = insert(linkedlist, headA.data);
+				}
+				headB = headB.nextNode;
+
+			}
+			headA = headA.nextNode;
+		}
+		return linkedlist;
+	}
+
+	public boolean isPresent(Node head, int data) {
+		Node t = head;
+		while (t != null) {
+			if (t.data == data)
+				return true;
+			t = t.nextNode;
+		}
+		return false;
 	}
 }
