@@ -8,7 +8,9 @@ public class Main {
 
 		Array array = new Array();
 
-		Long arrayL[] = array.rotateArray(longArray, 3);
+//		Long arrayL[] = array.rotateArray(longArray, 3);
+		
+		Long arrayL[] = array.reversalAlgo(longArray, 3);
 
 		array.printArray(arrayL);
 	}
