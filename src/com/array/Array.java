@@ -133,4 +133,28 @@ public class Array {
 			}
 		}
 	}
+
+	public Long[] selectionSort(Long arr[]) {
+
+		int len = arr.length;
+		int i = 0;
+		
+		while (i < len-1) {
+			int minIdx = i;
+			int j = i + 1;
+			while (j < len) {
+				if (arr[j] < arr[minIdx]) {
+					minIdx = j;
+				}
+				j++;
+			}
+
+			Long temp = arr[i];
+			arr[i] = arr[minIdx];
+			arr[minIdx] = temp;
+
+			i++;
+		}
+		return arr;
+	}
 }
