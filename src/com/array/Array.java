@@ -75,5 +75,32 @@ public class Array {
 		}
 	}
 
-	
+	public void findElementInSortedRtatedArray(Long arry[], Long key) {
+		int count = 0;
+		while (count < arry.length) {
+			if (key != null && key.equals(arry[count])) {
+				System.out.println("index of key : " + key + " is : " + count);
+				break;
+			}
+			count++;
+		}
+	}
+
+	public void binarySearchSorted(Long arr[], Long key) {
+		binarySearch(0, arr.length - 1, arr, key);
+	}
+
+	public void binarySearch(int lowIdx, int highIdx, Long arr[], Long key) {
+		int midIdx = (lowIdx + highIdx) / 2;
+
+		if (key.equals(arr[midIdx])) {
+			System.out.println("key " + key + " found at index " + midIdx);
+		} else {
+			if (key < arr[midIdx]) {
+				binarySearch(lowIdx, midIdx - 1, arr, key);
+			} else {
+				binarySearch(midIdx + 1, highIdx, arr, key);
+			}
+		}
+	}
 }

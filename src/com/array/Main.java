@@ -8,13 +8,19 @@ public class Main {
 
 		Array array = new Array();
 
+		array.printArray(longArray);
+		
 //		Long arrayL[] = array.rotateArray(longArray, 3);
 		
 //		Long arrayL[] = array.reversalAlgo(longArray, 3);
 		
-		Long arrayL[] = array.rotateCyclic(longArray, 1);
+//		Long arrayL[] = array.rotateCyclic(longArray, 1);
+		
+//		array.findElementInSortedRtatedArray(longArray, 3l);
+		
+		array.binarySearchSorted(longArray, 7l);
 
-		array.printArray(arrayL);
+//		array.printArray(arrayL);
 	}
 
 }
