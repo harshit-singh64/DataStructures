@@ -75,7 +75,7 @@ public class Array {
 		}
 	}
 
-	public void findElementInSortedRtatedArray(Long arry[], Long key) {
+	public void findElementInSortedrray(Long arry[], Long key) {
 		int count = 0;
 		while (count < arry.length) {
 			if (key != null && key.equals(arry[count])) {
@@ -86,20 +86,50 @@ public class Array {
 		}
 	}
 
+	public void findElementInSortedRtatedArray(Long arry[], Long key) {
+		int pivot = findPivot(0, arry.length - 1, arry);
+
+		if (arry[pivot] == key) {
+			System.out.println("key " + key + " found at index " + pivot);
+		} else {
+			if (arry[0] < key) {
+				binarySearch(0, pivot - 1, arry, key);
+			} else {
+				binarySearch(pivot + 1, arry.length - 1, arry, key);
+			}
+		}
+	}
+
+	public int findPivot(int lowIdx, int highIdx, Long arr[]) {
+		int midIdx = (lowIdx + highIdx) / 2;
+
+		if (midIdx < highIdx && arr[midIdx] > arr[midIdx + 1]) {
+			return midIdx;
+		} else if (midIdx > lowIdx && arr[midIdx] < arr[midIdx - 1]) {
+			return (midIdx - 1);
+		} else if (arr[lowIdx] >= arr[midIdx]) {
+			return findPivot(lowIdx, midIdx - 1, arr);
+		}
+		return findPivot(midIdx + 1, highIdx, arr);
+	}
+
 	public void binarySearchSorted(Long arr[], Long key) {
 		binarySearch(0, arr.length - 1, arr, key);
 	}
 
 	public void binarySearch(int lowIdx, int highIdx, Long arr[], Long key) {
-		int midIdx = (lowIdx + highIdx) / 2;
+		if (highIdx >= lowIdx) {
 
-		if (key.equals(arr[midIdx])) {
-			System.out.println("key " + key + " found at index " + midIdx);
-		} else {
-			if (key < arr[midIdx]) {
-				binarySearch(lowIdx, midIdx - 1, arr, key);
+			int midIdx = (lowIdx + highIdx) / 2;
+
+			if (key.equals(arr[midIdx])) {
+				System.out.println("key " + key + " found at index " + midIdx);
 			} else {
-				binarySearch(midIdx + 1, highIdx, arr, key);
+				if (key < arr[midIdx]) {
+					binarySearch(lowIdx, midIdx - 1, arr, key);
+				} else {
+					binarySearch(midIdx + 1, highIdx, arr, key);
+				}
 			}
 		}
 	}

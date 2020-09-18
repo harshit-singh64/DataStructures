@@ -2,7 +2,7 @@ package com.array;
 
 public class Main {
 
-	static Long longArray[] = { 1l, 2l, 3l, 4l, 5l, 6l, 7l };
+	static Long longArray[] = { 3l, 4l, 5l, 1l, 2l};
 
 	public static void main(String[] args) {
 
@@ -18,7 +18,9 @@ public class Main {
 		
 //		array.findElementInSortedRtatedArray(longArray, 3l);
 		
-		array.binarySearchSorted(longArray, 7l);
+//		array.binarySearchSorted(longArray, 7l);
+		
+		array.findElementInSortedRtatedArray(longArray, 2l);
 
 //		array.printArray(arrayL);
 	}
