@@ -10,7 +10,9 @@ public class Main {
 
 //		Long arrayL[] = array.rotateArray(longArray, 3);
 		
-		Long arrayL[] = array.reversalAlgo(longArray, 3);
+//		Long arrayL[] = array.reversalAlgo(longArray, 3);
+		
+		Long arrayL[] = array.rotateCyclic(longArray, 1);
 
 		array.printArray(arrayL);
 	}

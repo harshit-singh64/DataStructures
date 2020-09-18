@@ -33,14 +33,14 @@ public class Array {
 
 	public Long[] reversalAlgo(Long arry[], int noOfElements) {
 
-		arry = rotate(arry, 0, noOfElements - 1);
-		arry = rotate(arry, noOfElements, arry.length - 1);
-		arry = rotate(arry, 0, arry.length - 1);
+		arry = reverse(arry, 0, noOfElements - 1);
+		arry = reverse(arry, noOfElements, arry.length - 1);
+		arry = reverse(arry, 0, arry.length - 1);
 
 		return arry;
 	}
 
-	public Long[] rotate(Long arr[], int start, int end) {
+	public Long[] reverse(Long arr[], int start, int end) {
 		while (start < end) {
 			Long temp = arr[start];
 			arr[start] = arr[end];
@@ -51,10 +51,29 @@ public class Array {
 		return arr;
 	}
 
+	public Long[] rotateCyclic(Long array[], int number) {
+		int j = 0;
+		while (j < number) {
+			Long temL = array[0];
+			int i = 0;
+
+			while (i < array.length - 1) {
+				array[i] = array[i + 1];
+				i++;
+			}
+			array[array.length - 1] = temL;
+
+			j++;
+		}
+		return array;
+	}
+
 	public void printArray(Long arry[]) {
 
 		for (int i = 0; i < arry.length; i++) {
 			System.out.println(arry[i]);
 		}
 	}
+
+	
 }
