@@ -101,6 +101,14 @@ public class Array {
 	}
 
 	public int findPivot(int lowIdx, int highIdx, Long arr[]) {
+		if (highIdx < lowIdx) {
+			return 0;
+		}
+
+		if (highIdx == lowIdx) {
+			return lowIdx;
+		}
+
 		int midIdx = (lowIdx + highIdx) / 2;
 
 		if (midIdx < highIdx && arr[midIdx] > arr[midIdx + 1]) {
@@ -138,8 +146,8 @@ public class Array {
 
 		int len = arr.length;
 		int i = 0;
-		
-		while (i < len-1) {
+
+		while (i < len - 1) {
 			int minIdx = i;
 			int j = i + 1;
 			while (j < len) {
@@ -157,4 +165,57 @@ public class Array {
 		}
 		return arr;
 	}
+
+	public void findSumPair(Long arr[], Long sum) {
+		int i = 0;
+		while (i < (arr.length - 1)) {
+			int j = i + 1;
+			while (j < arr.length) {
+				if (sum.equals(arr[i] + arr[j])) {
+					System.out.println("pair with sum " + sum + " exists at index " + i + " and " + j);
+				}
+				j++;
+			}
+			i++;
+		}
+	}
+
+	public void maxPossibleSumByRotation(Long arr[]) {
+		int i = 0;
+		Long maxSum = 0l;
+		int element = 0;
+
+		while (i < arr.length) {
+			if (i != 0) {
+				arr = reversalAlgo(arr, 1);
+			}
+
+			Long sum = 0l;
+			for (int j = 0; j < arr.length; j++) {
+				sum += j * arr[j];
+			}
+			if (sum > maxSum) {
+				maxSum = sum;
+				element = i;
+			}
+			i++;
+		}
+		System.out.println("max sum " + maxSum + " by rotating first " + element);
+	}
+
+	public void fingNoOfRotations(Long arr[]) {
+		System.out.println("giving wrong value");
+		Long min = arr[0];
+		int min_index = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+			if (min > arr[i]) {
+				min = arr[i];
+				min_index = i;
+			}
+		}
+		System.out.println("number of rotations " + min_index);
+	}
+
+	
 }
