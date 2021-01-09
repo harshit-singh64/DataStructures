@@ -217,5 +217,36 @@ public class Array {
 		System.out.println("number of rotations " + min_index);
 	}
 
+	public Long[] insertion(Long arr[], Long key, Integer position) {
+
+		int len = arr.length;
+
+		if (position != null && position > len) {
+			System.out.println("can not be inserted.. array size is less");
+		} else if (position != null) {
+
+		} else {
+			arr[len] = key;
+		}
+		return arr;
+	}
 	
+	public Long[] bubbleSort(Long arr[]) {
+		int len = arr.length;
+		int i = 0;
+
+		while (i < len) {
+			int j = 0;
+			while (j < len-1) {
+				if (arr[j] > arr[j + 1]) {
+					Long temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+				}
+				j++;
+			}
+			i++;
+		}
+		return arr;
+	}
 }

@@ -2,19 +2,23 @@ package com.array;
 
 public class Main {
 
-	static Long longArray[] = { 3l, 4l, 5l, 1l, 2l };
-//	static Long longArray[] = { 15l, 18l, 2l, 3l, 6l, 12l};
-
-	
 	public static void main(String[] args) {
 
-		Array array = new Array();
+		// Long longArray[] = { 3l, 4l, 5l, 1l, 2l };
+		Long longArray[] = new Long[5];
+		longArray[0] = 1l;
+		longArray[1] = 2l;
+		longArray[2] = 3l;
+		longArray[3] = 4l;
+		longArray[4] = 5l;
 
+		Array array = new Array();
 		array.printArray(longArray);
+		System.out.println("");
 
 		// Long arrayL[] = array.rotateArray(longArray, 3);
 
-		// Long arrayL[] = array.reversalAlgo(longArray, 1);
+		array.reversalAlgo(longArray, 3);
 
 		// Long arrayL[] = array.rotateCyclic(longArray, 1);
 
@@ -30,9 +34,14 @@ public class Main {
 
 		// array.maxPossibleSumByRotation(longArray);
 
-		array.fingNoOfRotations(longArray);
-		// System.out.println("");
-		// array.printArray(arrayL);
+		// array.fingNoOfRotations(longArray);
+
+		// array.insertion(longArray, 6l, null);
+
+//		array.bubbleSort(longArray);
+
+		array.printArray(longArray);
+
 	}
 
 }
